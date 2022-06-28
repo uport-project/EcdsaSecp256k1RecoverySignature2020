@@ -1,8 +1,8 @@
 const {
   suites: { LinkedDataSignature },
-} = require("jsonld-signatures");
+} = require("@digitalcredentials/jsonld-signatures");
 
-const jsonld = require("jsonld");
+const jsonld = require("@digitalcredentials/jsonld");
 
 const LDKeyClass = require("./EcdsaSecp256k1RecoveryMethod2020");
 

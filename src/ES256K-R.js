@@ -1,8 +1,8 @@
 const crypto = require("crypto");
 const keyto = require("@trust/keyto");
 const base64url = require("base64url");
-const { binToHex, hexToBin, instantiateSecp256k1 } = require("bitcoin-ts");
-const publicKeyToAddress = require("ethereum-public-key-to-address");
+const { binToHex, hexToBin, instantiateSecp256k1 } = require("@bitauth/libauth");
+const { computeAddress } = require("@ethersproject/transactions")
 
 const stringify = require("json-stringify-deterministic");
 const getKid = (
@@ -246,8 +246,8 @@ const verifyDetached = async (
     messageHashUInt8Array
   );
 
-  const computedRecoveredEthereumAddress = publicKeyToAddress(
-    Buffer.from(publicKeyUInt8Array)
+  const computedRecoveredEthereumAddress = computeAddress(
+    publicKeyUInt8Array
   );
 
   if (
@@ -278,5 +278,5 @@ module.exports = {
   publicKeyUInt8ArrayFromJWK,
   signDetached,
   verifyDetached,
-  publicKeyToEthereumAddress: publicKeyToAddress,
+  publicKeyToEthereumAddress: computeAddress,
 };

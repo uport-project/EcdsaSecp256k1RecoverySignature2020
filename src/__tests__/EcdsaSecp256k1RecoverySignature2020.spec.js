@@ -1,5 +1,5 @@
-const jsigs = require("jsonld-signatures");
-const vcjs = require("@digitalbazaar/vc");
+const jsigs = require("@digitalcredentials/jsonld-signatures");
+const vcjs = require("@digitalcredentials/vc");
 const { AssertionProofPurpose } = jsigs.purposes;
 const EcdsaSecp256k1RecoveryMethod2020 = require("../EcdsaSecp256k1RecoveryMethod2020");
 const EcdsaSecp256k1RecoverySignature2020 = require("../EcdsaSecp256k1RecoverySignature2020");

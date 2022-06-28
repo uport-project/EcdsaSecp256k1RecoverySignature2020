@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const jsonld = require("jsonld");
 
 function readJson(filename) {
   return JSON.parse(fs.readFileSync(path.resolve(__dirname, filename), 'utf8'));
@@ -39,7 +38,6 @@ const customLoader = (url) => {
   }
   console.error("Unable to resolve locally " + url);
   throw new Error("Unable to resolve locally " + url);
-  // return jsonld.documentLoaders.node()(url);
 };
 
 module.exports = customLoader;
