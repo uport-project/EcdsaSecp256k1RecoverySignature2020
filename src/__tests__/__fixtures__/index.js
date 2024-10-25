@@ -1,3 +1,3 @@
-import documentLoader from "./customDocumentLoader";
+import documentLoader from "./customDocumentLoader.js";
 
 export {documentLoader};
