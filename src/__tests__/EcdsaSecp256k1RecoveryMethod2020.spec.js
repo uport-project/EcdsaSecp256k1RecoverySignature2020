@@ -1,6 +1,7 @@
-const base64url = require("base64url");
-const EcdsaSecp256k1RecoveryMethod2020 = require("../EcdsaSecp256k1RecoveryMethod2020");
-const unclockedDID = require("../../docs/unlockedDID.json");
+import base64url from "base64url";
+import EcdsaSecp256k1RecoveryMethod2020 from "../EcdsaSecp256k1RecoveryMethod2020";
+import unclockedDID from "../../docs/unlockedDID.json";
+
 const data = new Uint8Array([128]);
 
 describe("EcdsaSecp256k1RecoveryMethod2020", () => {

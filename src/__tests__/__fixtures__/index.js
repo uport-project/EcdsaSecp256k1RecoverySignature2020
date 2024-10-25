@@ -1,5 +1,3 @@
-const documentLoader = require("./customDocumentLoader");
+import documentLoader from "./customDocumentLoader";
 
-module.exports = {
-  documentLoader,
-};
+export {documentLoader};

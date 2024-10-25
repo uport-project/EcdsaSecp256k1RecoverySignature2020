@@ -1,8 +1,13 @@
-const jsigs = require("@digitalcredentials/jsonld-signatures");
-const { AssertionProofPurpose } = jsigs.purposes;
-const EcdsaSecp256k1RecoveryMethod2020 = require("../EcdsaSecp256k1RecoveryMethod2020");
-const EcdsaSecp256k1RecoverySignature2020 = require("../EcdsaSecp256k1RecoverySignature2020");
+import jsigs from "@digitalcredentials/jsonld-signatures";
 
+import EcdsaSecp256k1RecoveryMethod2020 from "../EcdsaSecp256k1RecoveryMethod2020";
+
+import EcdsaSecp256k1RecoverySignature2020 from "../EcdsaSecp256k1RecoverySignature2020";
+
+import {documentLoader} from "./__fixtures__";
+import unclockedDID from "../../docs/unlockedDID.json";
+
+const { AssertionProofPurpose } = jsigs.purposes;
 const doc = {
   "@context": [
     {
@@ -17,9 +22,6 @@ const doc = {
   image: "https://manu.sporny.org/images/manu.png",
 };
 
-const unclockedDID = require("../../docs/unlockedDID.json");
-
-const { documentLoader } = require("./__fixtures__");
 let vm1 = new EcdsaSecp256k1RecoveryMethod2020(unclockedDID.verificationMethod[0]);
 
 let suiteWithKey = new EcdsaSecp256k1RecoverySignature2020({

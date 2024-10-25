@@ -1,18 +1,15 @@
-const jsigs = require("@digitalcredentials/jsonld-signatures");
-const vcjs = require("@digitalcredentials/vc");
-const { AssertionProofPurpose } = jsigs.purposes;
-const EcdsaSecp256k1RecoveryMethod2020 = require("../EcdsaSecp256k1RecoveryMethod2020");
-const EcdsaSecp256k1RecoverySignature2020 = require("../EcdsaSecp256k1RecoverySignature2020");
-const unclockedDID = require("../../docs/unlockedDID.json");
+import jsigs from "@digitalcredentials/jsonld-signatures";
+import {issue, verifyCredential} from "@digitalcredentials/vc";
+import EcdsaSecp256k1RecoveryMethod2020 from "../EcdsaSecp256k1RecoveryMethod2020";
+import EcdsaSecp256k1RecoverySignature2020 from "../EcdsaSecp256k1RecoverySignature2020";
+import unclockedDID from "../../docs/unlockedDID.json";
+import sampleCredential from "../../docs/credential.json";
+import staticVerifiableCredential from "../../docs/verifiableCredential.json";
+import {documentLoader} from "./__fixtures__";
 
+const { AssertionProofPurpose } = jsigs.purposes;
 let clockedDID = Object.assign({}, unclockedDID);
 delete clockedDID.proof
-
-let verifiableCredential = require("../../docs/credential.json");
-const staticVerifiableCredential = require("../../docs/verifiableCredential.json");
-const data = new Uint8Array([128]);
-
-const { documentLoader } = require("./__fixtures__");
 
 const regenerate = !!process.env.REGENERATE_TEST_VECTORS;
 
@@ -57,26 +54,28 @@ describe("EcdsaSecp256k1RecoverySignature2020", () => {
 
       describe("vc-js", () => {
         it("should work as valid signature suite for issuing and verifying a credential", async () => {
-          verifiableCredential = await vcjs.issue({
-            credential: verifiableCredential,
+          const verifiableCredential = await issue({
+            credential: sampleCredential,
             documentLoader: documentLoader,
             compactProof: false,
             suite,
+            now: "2020-01-01T00:00:00Z",
           });
           expect(verifiableCredential.proof).toBeDefined();
 
-          const result = await vcjs.verifyCredential({
+          const result = await verifyCredential({
             credential: verifiableCredential,
             compactProof: false,
             documentLoader: documentLoader,
             purpose: new AssertionProofPurpose(),
             suite,
+            now: "2020-01-01T00:00:00Z",
           });
           expect(result.verified).toBeTruthy();
 
           if (!regenerate) {
             // Verify static verifiable credential
-            const result1 = await vcjs.verifyCredential({
+            const result1 = await verifyCredential({
               credential: staticVerifiableCredential,
               compactProof: false,
               documentLoader: documentLoader,

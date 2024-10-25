@@ -1,19 +1,16 @@
-const {
-  suites: { LinkedDataSignature },
-} = require("@digitalcredentials/jsonld-signatures");
+// const {
+//   suites: { LinkedDataSignature },
+// } = require("@digitalcredentials/jsonld-signatures");
 
-const jsonld = require("@digitalcredentials/jsonld");
+import jsigs from "@digitalcredentials/jsonld-signatures";
+const { LinkedDataSignature } = jsigs.suites;
+import jsonld from "@digitalcredentials/jsonld";
 
-const LDKeyClass = require("./EcdsaSecp256k1RecoveryMethod2020");
+import LDKeyClass from "./EcdsaSecp256k1RecoveryMethod2020";
 
 class EcdsaSecp256k1RecoverySignature2020 extends LinkedDataSignature {
   /**
    * @param linkedDataSigantureType {string} The name of the signature suite.
-   * @param linkedDataSignatureVerificationKeyType {string} The name verification key type for the signature suite.
-   *
-   * @param [LDKeyClass] {LDKeyClass} provided by subclass or subclass
-   *   overrides `getVerificationMethod`.
-   *
    *
    * This parameter is required for signing:
    *
@@ -169,4 +166,4 @@ class EcdsaSecp256k1RecoverySignature2020 extends LinkedDataSignature {
   }
 }
 
-module.exports = EcdsaSecp256k1RecoverySignature2020;
+export default EcdsaSecp256k1RecoverySignature2020;

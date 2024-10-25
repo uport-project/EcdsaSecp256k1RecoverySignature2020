@@ -1,4 +1,5 @@
-const { signDetached, verifyDetached } = require("../ES256K-R");
+import {signDetached, verifyDetached} from "../ES256K-R";
+
 
 const header = {
   alg: "ES256K-R",

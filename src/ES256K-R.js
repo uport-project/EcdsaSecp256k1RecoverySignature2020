@@ -1,10 +1,13 @@
-const crypto = require("crypto");
-const keyto = require("@trust/keyto");
-const base64url = require("base64url");
-const { binToHex, hexToBin, instantiateSecp256k1 } = require("@bitauth/libauth");
-const { computeAddress } = require("@ethersproject/transactions")
+import crypto from "crypto";
+import keyto from "@trust/keyto";
+import base64url from "base64url";
+import {binToHex, hexToBin, instantiateSecp256k1} from "@bitauth/libauth";
 
-const stringify = require("json-stringify-deterministic");
+import {computeAddress} from "@ethersproject/transactions";
+
+
+import stringify from "json-stringify-deterministic";
+
 const getKid = (
   jwk
   //: ISecp256k1PrivateKeyJWK | ISecp256k1PublicJWK
@@ -107,7 +110,7 @@ const publicKeyUInt8ArrayFromJWK = async (
 };
 
 /** Produce a JWS Unencoded Payload per https://tools.ietf.org/html/rfc7797#section-6 */
-const signDetached = async (
+export const signDetached = async (
   // in the case of EcdsaSecp256k1Signature2019 this is the result of createVerifyData
   payload, //: Buffer,
   vm, //: cryto-ld like key....,
@@ -169,7 +172,7 @@ const signDetached = async (
   return `${encodedHeader}..${encodedSignature}`;
 };
 
-const verifyDetached = async (
+export const verifyDetached = async (
   jws, //: string,
   payload, //: Buffer,
   vm //: cryto-ld like key....,
@@ -269,7 +272,7 @@ const verifyDetached = async (
   throw new Error("Cannot verify detached signature.");
 };
 
-module.exports = {
+export default {
   publicJWKFromPublicKeyHex,
   privateJWKFromPrivateKeyHex,
   privateKeyHexFromJWK,

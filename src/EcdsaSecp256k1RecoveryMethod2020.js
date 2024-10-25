@@ -1,6 +1,6 @@
 'use strict';
-const base64url = require("base64url");
-const ES256KR = require("./ES256K-R");
+import base64url from "base64url";
+import ES256KR from "./ES256K-R";
 
 class EcdsaSecp256k1RecoveryMethod2020 {
   /**
@@ -134,7 +134,7 @@ class EcdsaSecp256k1RecoveryMethod2020 {
  * Returns an object with an async sign function.
  * The sign function is bound to the KeyPair
  * and then returned by the KeyPair's signer method.
- * @param {EcdsaSecp256k1RecoveryMethod2020} key - An EcdsaSecp256k1RecoveryMethod2020.
+ * @param {EcdsaSecp256k1RecoveryMethod2020} vm - An EcdsaSecp256k1RecoveryMethod2020.
  *
  * @returns {{sign: Function}} An object with an async function sign
  * using the private key passed in.
@@ -166,7 +166,7 @@ function joseSignerFactory(vm) {
  * Returns an object with an async verify function.
  * The verify function is bound to the KeyPair
  * and then returned by the KeyPair's verifier method.
- * @param {EcdsaSecp256k1RecoveryMethod2020} key - An EcdsaSecp256k1RecoveryMethod2020.
+ * @param {EcdsaSecp256k1RecoveryMethod2020} vm - An EcdsaSecp256k1RecoveryMethod2020.
  *
  * @returns {{verify: Function}} An async verifier specific
  * to the key passed in.
@@ -236,4 +236,4 @@ const joseVerifierFactory = (vm) => {
   };
 };
 
-module.exports = EcdsaSecp256k1RecoveryMethod2020;
+export default EcdsaSecp256k1RecoveryMethod2020;

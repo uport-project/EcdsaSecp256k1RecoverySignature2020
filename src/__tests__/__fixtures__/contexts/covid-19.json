@@ -31,6 +31,9 @@
         }
       }
     },
+    "CovidTestingFacility": {
+      "@id": "https://w3c-ccg.github.io/vc-examples/covid-19/v1#CovidTestingFacility"
+    },
     "ImmunoglobulinDetectionTestSubject": {
       "@id": "https://w3c-ccg.github.io/vc-examples/covid-19/v1#ImmunoglobulinDetectionTestSubject",
       "@context": {
