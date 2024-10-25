@@ -1,6 +1,6 @@
 import base64url from "base64url";
-import EcdsaSecp256k1RecoveryMethod2020 from "../EcdsaSecp256k1RecoveryMethod2020.js";
-import unclockedDID from "../../docs/unlockedDID.json.js";
+import EcdsaSecp256k1RecoveryMethod2020 from "../EcdsaSecp256k1RecoveryMethod2020";
+import unclockedDID from "../../docs/unlockedDID.json";
 
 const data = new Uint8Array([128]);
 

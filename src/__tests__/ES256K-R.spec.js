@@ -1,4 +1,4 @@
-import {signDetached, verifyDetached} from "../ES256K-R.js";
+import {signDetached, verifyDetached} from "../ES256K-R";
 
 
 const header = {

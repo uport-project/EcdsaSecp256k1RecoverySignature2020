@@ -1,11 +1,11 @@
 import jsigs from "@digitalcredentials/jsonld-signatures";
 import {issue, verifyCredential} from "@digitalcredentials/vc";
-import EcdsaSecp256k1RecoveryMethod2020 from "../EcdsaSecp256k1RecoveryMethod2020.js";
-import EcdsaSecp256k1RecoverySignature2020 from "../EcdsaSecp256k1RecoverySignature2020.js";
+import EcdsaSecp256k1RecoveryMethod2020 from "../EcdsaSecp256k1RecoveryMethod2020";
+import EcdsaSecp256k1RecoverySignature2020 from "../EcdsaSecp256k1RecoverySignature2020";
 import unclockedDID from "../../docs/unlockedDID.json";
 import sampleCredential from "../../docs/credential.json";
 import staticVerifiableCredential from "../../docs/verifiableCredential.json";
-import {documentLoader} from "./__fixtures__.js";
+import {documentLoader} from "./__fixtures__";
 
 const {AssertionProofPurpose} = jsigs.purposes;
 let clockedDID = Object.assign({}, unclockedDID);

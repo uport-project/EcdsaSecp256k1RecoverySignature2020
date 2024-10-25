@@ -1,10 +1,10 @@
 import jsigs from "@digitalcredentials/jsonld-signatures";
 
-import EcdsaSecp256k1RecoveryMethod2020 from "../EcdsaSecp256k1RecoveryMethod2020.js";
+import EcdsaSecp256k1RecoveryMethod2020 from "../EcdsaSecp256k1RecoveryMethod2020";
 
-import EcdsaSecp256k1RecoverySignature2020 from "../EcdsaSecp256k1RecoverySignature2020.js";
+import EcdsaSecp256k1RecoverySignature2020 from "../EcdsaSecp256k1RecoverySignature2020";
 
-import {documentLoader} from "./__fixtures__.js";
+import {documentLoader} from "./__fixtures__";
 import unclockedDID from "../../docs/unlockedDID.json";
 
 const {AssertionProofPurpose} = jsigs.purposes;

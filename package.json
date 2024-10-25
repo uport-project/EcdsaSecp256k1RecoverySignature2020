@@ -22,7 +22,7 @@
     "url": "https://github.com/uport-project/EcdsaSecp256k1RecoverySignature2020/issues"
   },
   "dependencies": {
-    "@bitauth/libauth": "^3.0.0",
+    "@bitauth/libauth": "^2.0.0",
     "@digitalcredentials/jsonld": "^9.0.0",
     "@digitalcredentials/jsonld-signatures": "^12.0.1",
     "@ethersproject/transactions": "^5.7.0",
